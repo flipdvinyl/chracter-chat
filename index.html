@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐릭터 챗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 랜딩 화면 -->
+    <div id="landing" class="screen active">
+        <div class="container">
+            <h1>캐릭터를 선택해주세요</h1>
+            <div class="character-buttons">
+                <button class="character-btn" data-character="1">캐릭터1</button>
+                <button class="character-btn" data-character="2">캐릭터2</button>
+                <button class="character-btn" data-character="3">캐릭터3</button>
+                <button class="character-btn" data-character="4">캐릭터4</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 챗 화면 -->
+    <div id="chat" class="screen">
+        <div class="chat-header">
+            <button id="back-btn" class="back-btn">←</button>
+            <h2 id="character-name">캐릭터1</h2>
+        </div>
+        <div class="chat-container">
+            <div id="chat-messages" class="chat-messages"></div>
+            <div id="loading" class="loading hidden">응답 중...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
