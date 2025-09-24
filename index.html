@@ -17,6 +17,13 @@
                 <button class="character-btn" data-character="3">캐릭터3</button>
                 <button class="character-btn" data-character="4">캐릭터4</button>
             </div>
+            
+            <!-- 커스텀 캐릭터 영역 -->
+            <div class="custom-character-section">
+                <h3>나만의 캐릭터를 만들어봐요</h3>
+                <textarea id="custom-character-input" placeholder="캐릭터를 설명해주세요 (예: 귀여운 고양이 캐릭터, 친근한 할머니 등)"></textarea>
+                <button id="custom-character-btn" class="custom-character-btn">대화하기</button>
+            </div>
         </div>
     </div>
 
@@ -28,10 +35,18 @@
         </div>
         <div class="chat-container">
             <div id="chat-messages" class="chat-messages"></div>
-            <div id="loading" class="loading hidden">응답 중...</div>
+            <div id="loading" class="loading hidden">어떤 말을 할까 고민중이에요~</div>
         </div>
     </div>
 
+    <script>
+        // API 키 설정 (실제 배포 시에는 서버에서 환경변수로 주입)
+        // 로컬 개발 시에는 .env 파일에서 로드
+        window.OPENAI_API_KEY = 'your_openai_api_key_here';
+        window.GOOGLE_API_KEY = 'your_google_api_key_here';
+        // Supertone API는 Vercel 배포된 API를 사용하므로 클라이언트에서 직접 호출하지 않음
+        window.SUPERTONE_API_KEY = 'not_needed_for_vercel_api';
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

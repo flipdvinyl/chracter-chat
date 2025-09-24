@@ -17,16 +17,39 @@ A web-based character chat application featuring Kumamon from Kumamoto Prefectur
 ## Setup
 
 1. Clone the repository
-2. Set your OpenAI API key as an environment variable:
+2. Copy the environment file and set your OpenAI API key:
    ```bash
-   export OPENAI_API_KEY="your-api-key-here"
+   cp .env.example .env
+   # Edit .env file and replace 'your_openai_api_key_here' with your actual API key
    ```
-3. Or edit `script.js` and replace `YOUR_OPENAI_API_KEY_HERE` with your actual API key
+3. Or for development, edit `index.html` and replace the API key in the script tag
 4. Serve the files using a local web server:
    ```bash
-   python3 -m http.server 8080
+   python3 -m http.server 3000
    ```
-5. Open `http://localhost:8080` in your browser
+5. Open `http://localhost:3000` in your browser
+
+## Environment Variables
+
+- `OPENAI_API_KEY`: Your OpenAI API key (get it from https://platform.openai.com/account/api-keys)
+- `GOOGLE_API_KEY`: Your Google API key for Gemini image generation
+- `SUPERTONE_API_KEY`: Your Supertone API key for TTS (used by Vercel API)
+- `GROQ_API_KEY`: Your Groq API key (for future use)
+- `NOTION_SECRET`: Your Notion API secret (for future use)
+- `NOTION_DATABASE_ID`: Your Notion database ID (for future use)
+
+## API Architecture
+
+- **TTS API**: Uses Vercel-deployed API at `https://quiet-ink-groq.vercel.app/api/tts` to avoid CORS issues
+- **Image Generation**: Direct Google Gemini API calls from browser
+- **Chat**: Direct OpenAI API calls from browser
+
+## Security Note
+
+- The `.env` file is ignored by git and will not be committed to the repository
+- For production deployment, use proper environment variable injection
+- Never commit API keys to version control
+- TTS API keys are handled server-side through Vercel deployment
 
 ## Usage
 
